@@ -58,6 +58,10 @@ ifeq ($(strip $(AUDIO_FEATURE_ENABLED_EC_REF_CAPTURE)),true)
 LOCAL_CFLAGS += -DEC_REF_CAPTURE_ENABLED
 endif
 
+ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DYNAMIC_SR)),true)
+LOCAL_CFLAGS += -DDYNAMIC_SR_ENABLED
+endif
+
 LOCAL_C_INCLUDES              += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_C_INCLUDES              += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/techpack/audio/include
 LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
@@ -69,6 +73,7 @@ LOCAL_SRC_FILES := \
     stream/src/Stream.cpp \
     stream/src/StreamCompress.cpp \
     stream/src/StreamPCM.cpp \
+    stream/src/StreamACDB.cpp \
     stream/src/StreamInCall.cpp \
     stream/src/StreamNonTunnel.cpp \
     stream/src/StreamSoundTrigger.cpp \
