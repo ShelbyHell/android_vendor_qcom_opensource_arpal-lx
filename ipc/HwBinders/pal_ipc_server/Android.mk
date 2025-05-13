@@ -1,7 +1,4 @@
 LOCAL_PATH := $(call my-dir)
-
-ifneq ($(QCPATH),)
-
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := vendor.qti.hardware.pal@1.0-impl
@@ -36,4 +33,3 @@ LOCAL_SHARED_LIBRARIES := \
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif
